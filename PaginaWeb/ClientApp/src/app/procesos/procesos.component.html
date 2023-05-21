@@ -1,0 +1,99 @@
+<!--<ul *ngIf="listaProcesos">
+  <li *ngFor="let pro of listaProcesos">
+    {{pro.nombre}}
+  </li>
+</ul>-->
+<header class="content header">
+  <h2 class="title">Procesos Activos</h2>
+ </header>
+<table>
+  <thead>
+    <tr>
+      <th><strong>ID</strong></th>
+      <th><strong>Puesto</strong></th>
+      <th><strong>Descripcion</strong></th>
+      <th><strong>Cliente</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pro of listaProcesos">
+      <td>{{pro.idProceso}}</td>
+      <td class="text-primary"><strong>{{pro.nombre}}</strong></td>
+      <td>{{pro.descripcion}}</td>
+      <td class="text-success"><strong>{{pro.cliente}}</strong></td>
+    </tr>
+    </tbody>
+  <br />
+</table>
+
+
+
+
+<section>
+  <div class="formularioAlta">
+    <h3 class="title2"> Alta nuevos Procesos</h3>
+    <form [formGroup]="altaForm" (ngSubmit)="Alta()">
+      <div class="form-group row">
+        <label for="Email" class="col-sm-2 col-form-label">Email: </label>
+        <div class="col-sm-10">
+          <input id="Email" class="form-control" type="email" placeholder="Email" formControlName="email"
+                 [ngClass]="{'is-invalid': enviado && f.email.errors}" />
+          <div *ngIf="enviado && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">El email es obligatorio</div>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group row">
+        <label for="Pass" class="col-sm-2 col-form-label">Contraseña: </label>
+        <div class="col-sm-10">
+          <input id="Pass" class="form-control" placeholder="Contraseña" formControlName="pass"
+                 [ngClass]="{'is-invalid': enviado && f.pass.errors}" />
+          <div *ngIf="enviado && f.pass.errors" class="invalid-feedback">
+            <div *ngIf="f.pass.errors.required">La contraseña es obligatoria</div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="form-group row">
+        <label for="Nombre" class="col-sm-2 col-form-label">Nombre: </label>
+        <div class="col-sm-10">
+          <input id="Nombre" class="form-control" type="text" placeholder="Nombre" formControlName="nombre"
+                 [ngClass]="{'is-invalid': enviado && f.nombre.errors}" />
+          <div *ngIf="enviado && f.nombre.errors" class="invalid-feedback">
+            <div *ngIf="f.nombre.errors.required">El nombre es obligatorio</div>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group row">
+        <label for="Descripcion" class="col-sm-2 col-form-label">Descripcion: </label>
+        <div class="col-sm-10">
+          <input id="Descripcion" class="form-control" placeholder="Descripcion" formControlName="descripcion"
+                 [ngClass]="{'is-invalid': enviado && f.email.errors}" />
+          <div *ngIf="enviado && f.descripcion.errors" class="invalid-feedback">
+            <div *ngIf="f.descripcion.errors.required">La descripcion es obligatoria</div>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group row">
+        <label for="Cliente" class="col-sm-2 col-form-label">Cliente: </label>
+        <div class="col-sm-10">
+          <input id="Cliente" class="form-control" placeholder="Cliente" formControlName="cliente"
+                 [ngClass]="{'is-invalid': enviado && f.cliente.errors}" />
+          <div *ngIf="enviado && f.cliente.errors" class="invalid-feedback">
+            <div *ngIf="f.cliente.errors.required">El cliente es obligatorio</div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <button class="btn btn-primary" type="submit">Guardar</button>
+      </div>
+    </form>
+  </div>
+</section>

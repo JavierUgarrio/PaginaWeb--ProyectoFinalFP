@@ -1,0 +1,117 @@
+<!--<div class="container">
+  <h3>Alta de USUARIO</h3>
+  <div>
+    <label for="Nombre" class="col-sm-2 col-form-label">Nombre: </label>
+    <div class="col-sm-10">
+      <input id="Nombre" class="form-control" placeholder="Nombre" />
+    </div>
+  </div>
+  <br />
+  <div>
+    <label for="Apellidos" class="col-sm-2 col-form-label">Apellidos: </label>
+    <div class="col-sm-10">
+      <input id="Apellidos" class="form-control" placeholder="Apellidos" />
+    </div>
+  </div>
+  <br />
+  <div>
+    <label for="Telefono" class="col-sm-2 col-form-label">Telefono: </label>
+    <div class="col-sm-10">
+      <input id="Telefono" class="form-control" placeholder="Telefono" />
+    </div>
+  </div>
+  <br />
+  <div>
+    <label for="Email" class="col-sm-2 col-form-label">Email: </label>
+    <div class="col-sm-10">
+      <input id="Email" class="form-control" placeholder="Email" />
+    </div>
+  </div>
+  <br />
+  <div>
+    <label for="Password" class="col-sm-2 col-form-label">Contraseña: </label>
+    <div class="col-sm-10">
+      <input id="Password" class="form-control" placeholder="Contraseña" />
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <button class="btn btn-primary" (click)="Alta()"> Alta Usuario</button>
+  </div>
+</div>-->
+<header class="content header">
+<h2 class="title">Trabaja con Nosotros</h2>
+<p><strong>¿Estás buscando nuevos retos o desafíos?</strong> Te invitamos a integrarte a nuestro equipo de trabajo y en nuestros Proyectos. La información que nos proporciones será tratada con estricta confidencialidad y será utilizada exclusivamente para propósitos de Selección, gestionado por el personal de Recruiter IT.
+  Nos comunicaremos contigo cuando tengamos una oportunidad de trabajo adecuada para tu perfil, o en caso de requerir aclaración o más detalle acerca de la información recibida.
+</p>
+</header>
+
+<section>
+  <div class="formularioAlta">
+    <h3 class="title2"> Unete al equipo</h3>
+    <form [formGroup]="altaForm" (ngSubmit)="Alta()">
+      <div class="form-group row">
+        <label for="Nombre" class="col-sm-2 col-form-label">Nombre: </label>
+        <div class="col-sm-10">
+          <input id="Nombre" class="form-control" type="text" placeholder="Nombre" formControlName="nombre"
+                 [ngClass]="{'is-invalid': enviado && f.nombre.errors}" />
+          <div *ngIf="enviado && f.nombre.errors" class="invalid-feedback">
+            <div *ngIf="f.nombre.errors.required">El nombre es obligatorio</div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="form-group row">
+        <label for="Apellidos" class="col-sm-2 col-form-label">Apellidos: </label>
+        <div class="col-sm-10">
+          <input id="Apellidos" class="form-control" type="text" placeholder="Apellidos" formControlName="apellidos"
+                 [ngClass]="{'is-invalid': enviado && f.apellidos.errors}" />
+          <div *ngIf="enviado && f.apellidos.errors" class="invalid-feedback">
+            <div *ngIf="f.apellidos.errors.required">Los apellidos son obligatorio</div>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group row">
+        <label for="Telefono" class="col-sm-2 col-form-label">Telefono: </label>
+        <div class="col-sm-10">
+          <input id="Telefono" class="form-control" type="number" placeholder="Telefono" formControlName="telefono"
+                 [ngClass]="{'is-invalid': enviado && f.telefono.errors}" />
+          <div *ngIf="enviado && f.telefono.errors" class="invalid-feedback">
+            <div *ngIf="f.telefono.errors.required">El telefono es obligatorio</div>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group row">
+        <label for="Email" class="col-sm-2 col-form-label">Email: </label>
+        <div class="col-sm-10">
+          <input id="Email" class="form-control" type="email" placeholder="Email" formControlName="email"
+                 [ngClass]="{'is-invalid': enviado && f.email.errors}" />
+          <div *ngIf="enviado && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">El email es obligatorio</div>
+            <div *ngIf="f.email.errors.email">Formato de email incorrecto</div>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="form-group row">
+        <label for="Password" class="col-sm-2 col-form-label">Password: </label>
+        <div class="col-sm-10">
+          <input id="Password" class="form-control" type="password" placeholder="Password" formControlName="pass"
+                 [ngClass]="{'is-invalid': enviado && f.pass.errors}" />
+          <div *ngIf="enviado && f.pass.errors" class="invalid-feedback">
+            <div *ngIf="f.pass.errors.required">La contraseña es obligatorio</div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <button class="btn btn-primary" type="submit">Guardar</button>
+      </div>
+    </form>
+  </div>
+</section>
